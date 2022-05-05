@@ -56,16 +56,16 @@ runTestPercentage:
 	../bin/textClassifier --error ../outputs/resumen_alu0101158280.csv ../inputs/resumeExpected.csv
 
 runClassifier:
-	../bin/textClassifier --classify ../inputs/corpus_test.csv ../inputs/stopWords.txt ../outputs/aprendizajeE.txt ../outputs/aprendizajeH.txt ../outputs/aprendizajeC.txt ../outputs/aprendizajeB.txt
+	../bin/textClassifier --classify ../inputs/COV-test.csv ../inputs/stopWords.txt ../outputs/aprendizajeN.txt ../outputs/aprendizajeP.txt
 
 runLearner:
-	../bin/textClassifier --learner ../outputs/vocabulary.txt Electronics Household "Clothing & Accessories" Books
+	../bin/textClassifier --learner ../outputs/vocabulary.txt Negative Positive
 
 runCorpus:
-	../bin/textClassifier --corpus ../inputs/ecom-train.csv ../inputs/stopWords.txt Electronics Household "Clothing & Accessories" Books
+	../bin/textClassifier --corpus ../inputs/COV_train.csv ../inputs/stopWords.txt Negative Positive
 
 runVocabulary:
-	../bin/textClassifier --vocabulary ../inputs/ecom-train.csv ../outputs/vocabulary.txt ../inputs/stopWords.txt
+	../bin/textClassifier --vocabulary ../inputs/COV_train.csv ../outputs/vocabulary.txt ../inputs/stopWords.txt
 
 runLog:
 	echo "\n\n\nExecuted ${TIME}" >> ../outputs/runDetails.txt
