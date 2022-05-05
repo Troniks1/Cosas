@@ -1,0 +1,125 @@
+
+
+Executed Sun Apr 25 23:25:10 WEST 2021
+
+
+Elapsed pre-processing time: 4.84083 seconds.
+
+Elapsed generating vocabulary time: 22.0416 seconds.
+
+Elapsed storing vocabulary time: 0.29913 seconds.
+
+Program finished correclty.
+
+
+
+Executed Sun Apr 25 23:29:57 WEST 2021
+
+Elapsed pre-processing time: 5.04259 seconds.
+
+Elapsed generating vocabulary time: 20.7881 seconds.
+
+Elapsed storing vocabulary time: 0.33864 seconds.
+
+Program finished correclty.
+
+
+
+Executed Wed Apr 28 09:48:21 WEST 2021
+
+Elapsed pre-processing time: 12.4953 seconds.
+
+Elapsed generating vocabulary time: 48.2465 seconds.
+
+Elapsed storing vocabulary time: 0.53148 seconds.
+
+Program finished correclty.
+
+
+
+Executed Wed Apr 28 09:49:48 WEST 2021
+
+Elapsed pre-processing time: 8.69497 seconds.
+
+Elapsed generating vocabulary time: 37.9865 seconds.
+
+Elapsed storing vocabulary time: 0.62934 seconds.
+
+Program finished correclty.
+
+
+
+Executed Wed Apr 28 09:50:43 WEST 2021
+
+Elapsed pre-processing time: 7.43764 seconds.
+
+Elapsed generating vocabulary time: 35.7473 seconds.
+
+Elapsed storing vocabulary time: 0.67275 seconds.
+
+Program finished correclty.
+
+
+
+Executed Wed Apr 28 11:51:04 WEST 2021
+
+Elapsed pre-processing time: 3.76852 seconds.
+
+Elapsed generating vocabulary time: 4.43991 seconds.
+
+Elapsed storing vocabulary time: 0.29553 seconds.
+
+Program finished correclty.
+
+
+Executed Sat May  1 15:46:15 WEST 2021
+make[1]: Entering directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+make runVocabulary
+make[2]: Entering directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+../bin/textClassifier --vocabulary ../inputs/ecom-train.csv ../outputs/vocabulary.txt ../inputs/stopWords.txt
+
+Elapsed pre-processing time: 5.09878 seconds.
+
+Elapsed generating vocabulary time: 3.94018 seconds.
+
+Elapsed storing vocabulary time: 0.41601 seconds.
+
+Program finished correclty.
+make[2]: Leaving directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+make runCorpus
+make[2]: Entering directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+../bin/textClassifier --corpus ../inputs/ecom-train.csv ../inputs/stopWords.txt Electronics Household "Clothing & Accessories" Books
+
+Elapsed time for corpus Electronics: 1.24886 seconds.
+
+Elapsed time for corpus Household: 2.05216 seconds.
+
+Elapsed time for corpus Clothing & Accessories: 0.69134 seconds.
+
+Elapsed time for corpus Books: 1.48546 seconds.
+
+Program finished correclty.
+make[2]: Leaving directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+make runLearner
+make[2]: Entering directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+../bin/textClassifier --learner ../outputs/vocabulary.txt Electronics Household "Clothing & Accessories" Books
+
+Elapsed generating tokens and vocabulary time: 4.30634 seconds for Electronics data type.
+
+Elapsed generating tokens and vocabulary time: 5.77813 seconds for Household data type.
+
+Elapsed generating tokens and vocabulary time: 2.11907 seconds for Clothing & Accessories data type.
+
+Elapsed generating tokens and vocabulary time: 4.08824 seconds for Books data type.
+
+Elapsed time for calculating probabilities: 0.10885 seconds for Electronics data type.
+
+Elapsed time for calculating probabilities: 0.14111 seconds for Household data type.
+
+Elapsed time for calculating probabilities: 0.11892 seconds for Clothing & Accessories data type.
+
+Elapsed time for calculating probabilities: 0.13108 seconds for Books data type.
+
+Program finished correclty.
+make[2]: Leaving directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
+make[1]: Leaving directory '/mnt/c/Users/adria/Desktop/Practicas/Text-Classifier/build'
