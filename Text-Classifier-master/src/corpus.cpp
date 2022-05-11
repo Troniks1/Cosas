@@ -3,30 +3,19 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     corpus.cpp                                         =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-04-28 12:35:30
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-04-30 15:51:35
-*/
-/*------------------  FUNCTIONS  -----------------*/
+
+/*------------------  DECLARACION DE FUNCIONES -----------------*/
 
 #include "../include/corpus.hpp"
 
 /*------------------------------------------------*/
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  */
 Corpus::Corpus (void) {
 	set_Name("");
@@ -35,10 +24,10 @@ Corpus::Corpus (void) {
 }
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  *
- * @param[in]  name       The name
- * @param[in]  inputFile  The input file
+ * @param[in]  name       El nombre.
+ * @param[in]  inputFile  El fichero de entrada.
  */
 Corpus::Corpus (std::string name, std::string inputFile) {
 	set_Name(name);
@@ -47,70 +36,70 @@ Corpus::Corpus (std::string name, std::string inputFile) {
 }
 
 /**
- * @brief      Destroys the object.
+ * @brief      Destruye el objeto.
  */
 Corpus::~Corpus (void) {
 }
 
 /**
- * @brief      Gets the name.
+ * @brief      Consigue el nombre.
  *
- * @return     The name.
+ * @return     El nombre.
  */
 std::string Corpus::get_Name (void) const {
 	return name_;
 }
 
 /**
- * @brief      Gets the output file name.
+ * @brief      Consigue el nombre del fichero de salida.
  *
- * @return     The output file name.
+ * @return     El nombre del fichero de salida.
  */
 std::string Corpus::get_OutputFileName (void) const {
 	return outputFileName_;
 }
 
 /**
- * @brief      Gets the input file.
+ * @brief      COnsigue el fichero de entrada.
  *
- * @return     The input file.
+ * @return     El fichero de entrada.
  */
 std::string Corpus::get_InputFile (void) const {
 	return inputFile_;
 }
 
 /**
- * @brief      Sets the name.
+ * @brief      Establece el nombre.
  *
- * @param[in]  newName  The new name
+ * @param[in]  newName  El nombre.
  */
 void Corpus::set_Name (std::string newName) {
 	name_ = newName;
 }
 
 /**
- * @brief      Sets the output file name.
+ * @brief      Establece el nombre del fichero de salida.
  *
- * @param[in]  newOutputFileName  The new output file name
+ * @param[in]  newOutputFileName  El nombre del fichero de salida.
  */
 void Corpus::set_OutputFileName (std::string newOutputFileName) {
 	outputFileName_ = newOutputFileName;
 }
 
 /**
- * @brief      Sets the input file.
+ * @brief      Establece el nombre del fichero de entrada.
  *
- * @param[in]  newInputFile  The new input file
+ * @param[in]  newInputFile  El nombre del fichero de entrada.
  */
 void Corpus::set_InputFile (std::string newInputFile) {
 	inputFile_ = newInputFile;
 }
 
 /**
- * @brief      Generates and stores the corpus data.
+ * @brief      Genera y almacena los datos del corpus.
  *
- * @param      stopWords     The stop words
- * @param[in]  preProcesser  The pre processer
+ * @param      stopWords     Las StopWords.
+ * @param[in]  preProcesser  El preprocesado.
  */
 void Corpus::generateCorpus (std::vector<std::string>& stopWords, PreProcesser& preProcesser) {
 	Chrono myChrono;

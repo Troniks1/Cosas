@@ -3,29 +3,17 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     main.cpp                                           =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-04-21 12:55:55
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-05-14 12:25:33
-*/
-/*------------------  FUNCTIONS  -----------------*/
+
+/*------------------  DECLARACIÓN DE FUNCIONES  -----------------*/
 
 #include "../include/vocabulary.hpp"
 #include "../include/corpus.hpp"
 #include "../include/learner.hpp"
 #include "../include/classifier.hpp"
-
 /*------------------------------------------------*/
 
 void printHelp (void);
@@ -36,13 +24,13 @@ void generateClassifier (int& argc, char* argv[]);
 void calculateError (int& argc, char* argv[]);
 
 /**
- * @brief      Main function of the program, receives the data file as
- *             parameter.
+ * @brief      Función Main del programa recibe el fichero de datos como
+ *             parametro.
  *
- * @param[in]  argc  The count of arguments
- * @param      argv  The arguments array
+ * @param[in]  argc  El número de argummentos.
+ * @param      argv  El array de argumentos
  *
- * @return     0 If program finishes correctly
+ * @return     0 Si el programa finaliza correctamente.
  */
 int main (int argc, char* argv[]) {
 	if (argc <= 1) {
@@ -69,23 +57,20 @@ int main (int argc, char* argv[]) {
 		else if (flag == "-e" || flag == "--error") {
 			calculateError(argc, argv);
 		}
-
 	}
 	
 	std::cout << std::endl << "Program finished correclty." << std::endl;
 	return 0;
 }	
 
-
 /**
- * @brief      Prints help information about how to run and use the program.
+ * @brief      Muestra por pantalla información de ayuda para ejecutar el programa correctamente.
  */
 void printHelp (void) {
 	const std::string MAN = "../include/man.txt";
 	std::ifstream file(MAN, std::ios::in);
 	if (file.fail()) {
 		std::cout << std::endl << "Error while opening manual file, make sure the file \"man.txt\" is placed on the include folder." << std::endl;
-		std::cout << "You can also read the instructions at <https://github.com/AdrianEpi/Text-Classifier> " << std::endl << std::endl;
 		exit(1);
 	} 
 	std::string reader;
@@ -96,11 +81,11 @@ void printHelp (void) {
 }
 
 /**
- * @brief      Generates the vocabulary from the first input file and stores it
- *             into second file using the stopwords readed from third file
+ * @brief      Genera el vocabulario desde el primer fichero de entrada y lo almacena
+ *             en el segundo fichero, haciendo uso de las stopWords ddel tercer fichero.
  *
- * @param      argc  The count of arguments
- * @param      argv  The arguments array
+ * @param      argc  El conteo de argumentos.
+ * @param      argv  Los argumentos del array.
  */
 void generateVocabulary (int& argc, char* argv[]) {
 	if (argc != 5) {
@@ -136,13 +121,12 @@ void generateVocabulary (int& argc, char* argv[]) {
 }
 
 /**
- * @brief      Generates one corpus per each type of data received as argument
- *             in console line. The data type must be the first column of the
- *             csv or data file and it should be followed by a ',' on the data
- *             file but not in the command line.
+ * @brief      Genera un corpus para cada tipo de dato recibido como argumento por consola.
+ *             El tipo de dato, tiene que ser la primera columna del fichero .csv seguido 
+ *			   por una coma en el fichero de datos, pero no en la línea de comandos.
  *
- * @param      argc  The count of arguments
- * @param      argv  The arguments array
+ * @param      argc  La cantidad de argumentos.
+ * @param      argv  El array de argumentos.
  */
 void generateCorpus (int& argc, char* argv[]) {
 	if (argc < 4) {
@@ -163,12 +147,11 @@ void generateCorpus (int& argc, char* argv[]) {
 }
 
 /**
- * @brief      Calculates the probability of each token in the given corpus as
- *             an argument at the command line and stores it into different
- *             files.
+ * @brief      Calcula la probabilidad de cada token en el corpus proporcionado
+ *             como entrada y las guarda en otro fichero.
  *
- * @param      argc  The count of arguments
- * @param      argv  The arguments array
+ * @param      argc  La cantidad de argumentos.
+ * @param      argv  El array de argumentos.
  */
 void generateLearner (int& argc, char* argv[]) {
 	if (argc < 3) {
@@ -180,10 +163,10 @@ void generateLearner (int& argc, char* argv[]) {
 }
 
 /**
- * @brief      Classifies the test_curpus into the received class types
+ * @brief      Clasifica el corpus de testeo.
  *
- * @param      argc  The count of arguments
- * @param      argv  The arguments array
+ * @param      argc  La cantidad de argumentos.
+ * @param      argv  El array de argumentos.
  */
 void generateClassifier (int& argc, char* argv[]) {
 	if (argc < 4) {
@@ -195,11 +178,11 @@ void generateClassifier (int& argc, char* argv[]) {
 }
 
 /**
- * @brief      Calculates the error and success percentage comparing the
- *             expected outputFile and the generated outputFile.
+ * @brief      Calcula el porcentaje de error y acierto comparando
+ *             los resultados generados y los esperados.
  *
- * @param      argc  The count of arguments
- * @param      argv  The arguments array
+ * @param      argc  La cantidad de argumentos.
+ * @param      argv  El array de argumentos.
  */
 void calculateError (int& argc, char* argv[]) {
 	if (argc != 4) {

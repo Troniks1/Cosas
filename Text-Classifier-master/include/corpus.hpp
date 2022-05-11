@@ -3,24 +3,18 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     corpus.hpp                                         =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------  DECLARACIÓN DE FUNCIONES  ------------*/
 
 #pragma once
 #include "vocabulary.hpp"
 #include "Chrono.hpp"
 
 /*------------------------------------------------*/
-/*------------------  LIBRARIES  -----------------*/
+/*------------------  LIBRERÍAS  -----------------*/
 
 #include <cstring>
 #include <cstdio>
@@ -35,23 +29,23 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      This class describes a corpus.
+ * @brief      Esta clase describe un corpus.
  */
 class Corpus {
 
 	private:
-		// Attributes
-		std::string name_;				// The corpus name or data type
-		std::string outputFileName_;	// The output file name
-		std::string inputFile_;			// The input file name
+		// Atributos
+		std::string name_;				// El nombre del corpus o tipo de dato
+		std::string outputFileName_;	// El nombre del fichero de salida.
+		std::string inputFile_;			// El nombre del fichero de entrada.
 
 	public:
-		// Builders & Destroyer
+		// Constructores y Destructor
 		Corpus (void);
 		Corpus (std::string name, std::string inputFile);
 		~Corpus (void);
 
-		// Getters & Setters
+		// Setters y Getters
 		std::string get_Name (void) const;
 		std::string get_OutputFileName (void) const;
 		std::string get_InputFile (void) const;
@@ -60,7 +54,7 @@ class Corpus {
 		void set_OutputFileName (std::string newOutputFileName);
 		void set_InputFile (std::string newInputFile);
 
-		// Functions
+		// Funciones
 		void generateCorpus (std::vector<std::string>& stopWords, PreProcesser& preProcesser);
 
 };

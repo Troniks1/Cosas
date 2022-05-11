@@ -1,27 +1,13 @@
 /*=======================================================================================
 =========================================================================================
-    =                                                                              =
-    =            Proyect:       Chrono Class                                       =
-    =            File name:     Chrono.cpp                                         =
-    =            Author:        Adrián Epifanio Rodríguez Hernández                =
-    =            Date:          16/04/2020                                         =
-    =            Language:      C++                                                =
-    =            Email:         alu0101158280@ull.edu.es                           =
-    =            Place:         Universidad De La Laguna                           =
-    =                           Escuela Superior de Ingeniería y Tecnología        =
-    =            GitHub:        AdrianEpi                                          =
-    =                           https://github.com/AdrianEpi                       =
-    =            Description:   Source file of the Chrono Class                    =
-    =                                                                              =
+	=                                                                              =
+	=            Proyect:       Text Classifier                                    =
+	=            File name:     Chrono.cpp                                         =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrián Epifanio
-* @Date:   2020-04-16 10:49:23
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2020-11-14 08:41:10
-*/
-/*------------  FUNCTIONS DECLARATION  ------------*/
+/*------------  DECLARACIÓN DE FUNCIONES  ------------*/
 
 #include "../include/Chrono.hpp"
 
@@ -29,48 +15,48 @@
 
 
 /**
- * @brief      Constructs a new chrono.
+ * @brief      Construye un nuevo chrono.
  */
 Chrono::Chrono () {
 }
 
 /**
- * @brief      Destroys the chrono.
+ * @brief      Destruye el chrono.
  */
 Chrono::~Chrono () {
 }
 
 /**
- * @brief      Gets the start clock.
+ * @brief      Consigue el start del reloj.
  *
- * @return     The start clock.
+ * @return     El start del reloj.
  */
 std::chrono::time_point<std::chrono::system_clock> Chrono::get_StartClock (void) const {
 	return startClock_;
 }
 
 /**
- * @brief      Gets the end clock.
+ * @brief      Consigue el final del reloj.
  *
- * @return     The end clock.
+ * @return     El final del reloj.
  */
 std::chrono::time_point<std::chrono::system_clock> Chrono::get_EndClock (void) const {
 	return endClock_;
 }
 
 /**
- * @brief      Gets the total time.
+ * @brief      Consigue el tiempo total.
  *
- * @return     The total time.
+ * @return     El tiempo total.
  */
 int Chrono::get_TotalTime (void) const {
 	return totalTime_;
 }
 
 /**
- * @brief      Gets the start time.
+ * @brief      Consigue el tiempo inicial.
  *
- * @return     The start time.
+ * @return     El tiempo inicial.
  */
 std::string Chrono::get_StartTime (void) const {
 	return ctime(&startTime_);
@@ -78,64 +64,64 @@ std::string Chrono::get_StartTime (void) const {
 }
 
 /**
- * @brief      Gets the end time.
+ * @brief      Cosnigue el tiempo final.
  *
- * @return     The end time.
+ * @return     El tiempo final.
  */
 std::string Chrono::get_EndTime (void) const {
 	return ctime(&endTime_);
 }
 
 /**
- * @brief      Sets the start clock.
+ * @brief      Establece el tiempo inicial.
  *
- * @param[in]  startClock  The start clock
+ * @param[in]  startClock  El tiempo inicial.
  */
 void Chrono::set_StartClock (std::chrono::time_point<std::chrono::system_clock> startClock) {
 	startClock_ = startClock;
 }
 
 /**
- * @brief      Sets the end clock.
+ * @brief      Establece el tiempo final.
  *
- * @param[in]  endClock  The end clock
+ * @param[in]  endClock  El tiempo final
  */
 void Chrono::set_EndClock (std::chrono::time_point<std::chrono::system_clock> endClock) {
 	endClock_ = endClock;
 }
 
 /**
- * @brief      Sets the total time.
+ * @brief      Establece el tiempo total.
  *
- * @param[in]  totalTime  The total time
+ * @param[in]  totalTime  El tiempo total.
  */
 void Chrono::set_TotalTime (int totalTime) {
 	totalTime_ = totalTime;
 }
 
 /**
- * @brief      Sets the start time.
+ * @brief      Establece el tiempo inicial.
  */
 void Chrono::set_StartTime (void) {
     startTime_ = time(NULL);
 }
 
 /**
- * @brief      Sets the end time.
+ * @brief      Establece el tiempo final.
  */
 void Chrono::set_EndTime (void) {
 	endTime_ = time(NULL);
 }
 
 /**
- * @brief      Restarts the clock
+ * @brief      Reinicia el reloj.
  */
 void Chrono::restartChrono (void) {
 	set_TotalTime(0);
 }
 
 /**
- * @brief      Starts the chrono.
+ * @brief      Incia el chrono.
  */
 void Chrono::startChrono (void) {
 	restartChrono();
@@ -144,7 +130,7 @@ void Chrono::startChrono (void) {
 }
 
 /**
- * @brief      Stops the chrono.
+ * @brief      Para el chrono.
  */
 void Chrono::stopChrono (void) {
 	set_EndTime();
@@ -153,7 +139,7 @@ void Chrono::stopChrono (void) {
 }
 
 /**
- * @brief      Pauses the chrono.
+ * @brief      Pausa el chrono.
  */
 void Chrono::pauseChrono (void) {
 	stopChrono();
@@ -161,16 +147,16 @@ void Chrono::pauseChrono (void) {
 }
 
 /**
- * @brief      Resumes the chrono
+ * @brief      Vuelve a poner en marcha el reloj.
  */
 void Chrono::resumeChrono (void) {
 	startClock_ = std::chrono::system_clock::now();
 }
 
 /**
- * @brief      Gets the time in seconds.
+ * @brief      Consigue el tiempo en segundos.
  *
- * @return     The seconds.
+ * @return     Los segundos.
  */
 float Chrono::get_Seconds (void) {
 	float time = totalTime_ / 1000000;
@@ -178,11 +164,11 @@ float Chrono::get_Seconds (void) {
 }
 
 /**
- * @brief      Gets the time in seconds with some decimals.
+ * @brief      Consigue el tiempo en segundos con decimales.
  *
- * @param[in]  decimalAmmount  The decimal ammount
+ * @param[in]  decimalAmmount  La cantidad de decimales.
  *
- * @return     The seconds.
+ * @return     Los segundos.
  */
 float Chrono::get_Seconds (int decimalAmmount) {
 	float time = totalTime_;
@@ -211,9 +197,9 @@ float Chrono::get_Seconds (int decimalAmmount) {
 }
 
 /**
- * @brief      Gets the time in milli seconds.
+ * @brief      Consigue el tiempo en milisegundos.
  *
- * @return     The milli seconds.
+ * @return     Los milisegundos.
  */
 float Chrono::get_MilliSeconds (void) {
 	float time = totalTime_ / 1000;
@@ -221,11 +207,11 @@ float Chrono::get_MilliSeconds (void) {
 }
 
 /**
- * @brief      Gets the time in milli seconds with some decimals.
+ * @brief      Consigue el tiempo el milisegundos con decimales.
  *
- * @param[in]  decimalAmmount  The decimal ammount
+ * @param[in]  decimalAmmount  La cantidad de decimales.
  *
- * @return     The milli seconds.
+ * @return     Los milisegundos.
  */
 float Chrono::get_MilliSeconds (int decimalAmmount) {
 	float time = totalTime_;
@@ -254,11 +240,10 @@ float Chrono::get_MilliSeconds (int decimalAmmount) {
 }
 
 /**
- * @brief      Gets the time in micro seconds.
+ * @brief      Consigue el tiempo en microsegundos.
  *
- * @return     The micro seconds.
+ * @return     Los microsegundos.
  */
 float Chrono::get_MicroSeconds (void) {
 	return totalTime_;
 }
-

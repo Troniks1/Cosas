@@ -2,25 +2,19 @@
 =========================================================================================
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
-	=            File name:     vocabulary.hpp                                     =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            File name:     learner.hpp                                        =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------  DECLARACIÓN DE FUNCIONES  ------------*/
 
 #pragma once
 #include "corpus.hpp"
 #include "token.hpp"
 
 /*------------------------------------------------*/
-/*------------------  LIBRARIES  -----------------*/
+/*------------------  LIBRERÍAS  -----------------*/
 
 #include <cstring>
 #include <set>
@@ -32,23 +26,23 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      This class describes a learner.
+ * @brief      Esta clase describe un learner.
  */
 class Learner {
 
 	private:
-		// Attributes
-		std::vector<Vocabulary> learners_;			// The learner for each data type
-		std::vector<std::string> inputCorpusFiles_;	// The input corpus file name
-		std::string vocabularyFile_;				// The vocabulary file name
+		// Atributos.
+		std::vector<Vocabulary> learners_;			// El learner para cada tipo de dato.
+		std::vector<std::string> inputCorpusFiles_;	// El fichero de entrada del corpus.
+		std::string vocabularyFile_;				// El fichero del vocabulario.
 
 	public:
-		// Builders & Destroyer
+		// Constructores y Destructor
 		Learner (void);
 		Learner (char* argv[], int& argc);
 		~Learner (void);
 
-		// Getters & Setters
+		// Setters y Getters
 		std::vector<Vocabulary> get_Learners (void) const;
 		std::vector<std::string> get_InputCorpusFiles (void) const;
 		std::string get_VocabularyFile (void) const;
@@ -57,7 +51,7 @@ class Learner {
 		void set_InputCorpusFiles (std::vector<std::string> newInputCorpusFiles);
 		void set_VocabularyFile (std::string newVocabularyFile);
 
-		// Write
+		// Funciones.
 		void learnAndStoreData (void);
 
 };

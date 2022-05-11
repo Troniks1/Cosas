@@ -3,40 +3,28 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     classifier.cpp                                     =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-05-06 08:37:08
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-05-14 12:41:28
-*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------  DECLARACIÓN DE FUNCIONES  ------------*/
 
 #include "../include/classifier.hpp"
 
 /*------------------------------------------------*/
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  */
 Classifier::Classifier (void) {
 	set_Data("");
 }
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  *
- * @param      argv  The arguments array
- * @param      argc  The count of arguments
+ * @param      argv  El array de argumentos.
+ * @param      argc  La cantidad de argumentos.
  */
 Classifier::Classifier (char* argv[], int& argc) {
 	set_Data("");
@@ -45,80 +33,76 @@ Classifier::Classifier (char* argv[], int& argc) {
 	std::string input = argv[2];
 	std::string stopWords = argv[3];
 	classifyFile(input, stopWords);
-	//std::string outputFile = "../outputs/classification.csv";
-	//std::string resume = "../outputs/resume.csv";
-	// Personal case output names
-	std::string outputFile = "../outputs/clasificacion_alu0101158280.csv";
-	std::string resume = "../outputs/resumen_alu0101158280.csv";
+	std::string outputFile = "../outputs/clasificacion_alu0100819786.csv";
+	std::string resume = "../outputs/resumen_alu0100819786.csv";
 	storeFile(outputFile, resume);
 }
 
 /**
- * @brief      Destroys the object.
+ * @brief      Destruye el objeto.
  */
 Classifier::~Classifier (void) {
 }
 
 /**
- * @brief      Gets the input files.
+ * @brief      Consigue el fichero de entrada.
  *
- * @return     The input files.
+ * @return     EL fichero de entrada.
  */
 std::vector<std::string> Classifier::get_InputFiles (void) const {
 	return inputFiles_;
 }
 
 /**
- * @brief      Gets the learned data.
+ * @brief      Consigue los datos de aprendizaje.
  *
- * @return     The learned data.
+ * @return     Los datos de aprendizaje.
  */
 std::vector<Vocabulary> Classifier::get_Class (void) const {
 	return class_;
 }
 
 /**
- * @brief      Gets the data.
+ * @brief      Consigue los datos.
  *
- * @return     The data.
+ * @return     Los datos.
  */
 std::string Classifier::get_Data (void) const {
 	return data_;
 }
 
 /**
- * @brief      Sets the input files.
+ * @brief      Establece el fichero de entrada.
  *
- * @param[in]  newInputFiles  The new input files
+ * @param[in]  newInputFiles  El fichero de entrada.
  */
 void Classifier::set_InputFiles (std::vector<std::string> newInputFiles) {
 	inputFiles_ = newInputFiles;
 }
 
 /**
- * @brief      Sets the learned data.
+ * @brief      Establece los datos de aprendizaje.
  *
- * @param[in]  newClass  The new learned data
+ * @param[in]  newClass  Los datos de aprendizaje.
  */
 void Classifier::set_Class (std::vector<Vocabulary> newClass) {
 	class_ = newClass;
 }
 
 /**
- * @brief      Sets the data.
+ * @brief      Establece los datos.
  *
- * @param[in]  newData  The new data
+ * @param[in]  newData  Los datos.
  */
 void Classifier::set_Data (std::string newData) {
 	data_ = newData;
 }
 
 /**
- * @brief      Preprocess, calculates the probabilities and classifies the given
- *             input file.
+ * @brief      Preprocesa, calcula la probabilidad y clasifica el fichero de entrada.
  *
- * @param      inputFile      The input file with the testCorpus
- * @param      stopWordsFile  The stop words file for preprocessing use
+ * @param      inputFile      El fichero con del Corpus de Test.
+ * @param      stopWordsFile  El fichero con las stopWords.
  */
 void Classifier::classifyFile (std::string& inputFile, std::string& stopWordsFile) {
 	Vocabulary voc;
@@ -160,10 +144,9 @@ void Classifier::classifyFile (std::string& inputFile, std::string& stopWordsFil
 }
 
 /**
- * @brief      Classifies a given sentence into the correct type and stores the
- *             information into data var.
+ * @brief      Clasifica un tweet.
  *
- * @param[in]  sentence  The sentence which is going to be classifyed
+ * @param[in]  sentence  El tweet que va a ser clasificado.
  */
 void Classifier::classify (std::vector<std::string> sentence) {
 	std::vector<float> prob;
@@ -194,8 +177,7 @@ void Classifier::classify (std::vector<std::string> sentence) {
 }
 
 /**
- * @brief      Generates and adds the class probabilities to each class with the
- *             following formula: ln(classLinesAmmount / totalLinesAmmout)
+ * @brief      Genera y añade la probabilidad de clase de cada clase.
  */
 void Classifier::generateClassProbability (void) {
 	int totalLines = 0;
@@ -208,12 +190,11 @@ void Classifier::generateClassProbability (void) {
 }
 
 /**
- * @brief      Preprocess the given sentence using the same pre-processing
- *             method as the vocabulary
+ * @brief      Preprocesa un determinado Tweet.
  *
- * @param      preprocesser  The preprocesser
- * @param      stopWords     The stop words
- * @param      sentence      The sentence
+ * @param      preprocesser  El preProcesser.
+ * @param      stopWords     Las stopWords.
+ * @param      sentence      El tweet.
  */
 void Classifier::preProcess (std::vector<std::string>& stopWords, std::string& fileName) {
 	PreProcesser preprocesser;
@@ -227,10 +208,10 @@ void Classifier::preProcess (std::vector<std::string>& stopWords, std::string& f
 }
 
 /**
- * @brief      Reads input learned files and store the tokens into the Class vector.
+ * @brief      Lee los datos de aprendizaje y los guarda.
  *
- * @param      argv  The arguments array
- * @param      argc  The count of arguments
+ * @param      argv  El array de argumentos.
+ * @param      argc  La cantidad de argumentos.
  */
 void Classifier::readInputFiles (char* argv[], int& argc) {
 	std::vector<Token> tmpVector;
@@ -284,14 +265,10 @@ void Classifier::readInputFiles (char* argv[], int& argc) {
 }
 
 /**
- * @brief      Stores the output data into the classified file and the resume
- *             file. The classify file format is:
- *             <Description>, <ProbSentClassA>, ..., <ProbSentClassN>, <Class>.
- *             <Description>, <ProbSentClassA>, ..., <ProbSentClassN>, <Class>.
- *             <Description>, <ProbSentClassA>, ..., <ProbSentClassN>, <Class>.
+ * @brief      Guarda los datos en los ficheros de salida finales.
  *
- * @param      outputFile  The output file
- * @param      resumeFile  The resume file
+ * @param      outputFile  El fichero de salida.
+ * @param      resumeFile  El fichero de resume.
  */
 void Classifier::storeFile (std::string& outputFile, std::string& resumeFile) {
 	std::fstream file(outputFile, std::ios::out | std::ios::trunc);
@@ -302,8 +279,6 @@ void Classifier::storeFile (std::string& outputFile, std::string& resumeFile) {
 	else { 
 		bool isDecimal = false;
 		for (unsigned i = 0; i < data_.length(); i++) {
-			/*----------  Fixing decimales to 2 digits  ----------*/
-			// file << data_; // If dont want to trunc decimals
 			
 			if (isDecimal && std::isdigit(data_[i]) && std::isdigit(data_[i - 2])) {
 				if (data_[i] != ',') {
@@ -336,7 +311,6 @@ void Classifier::storeFile (std::string& outputFile, std::string& resumeFile) {
 		exit(1);
 	} 
 	else {
-		// next line for personal purposes
 		resume << "codigo: " << std::endl;
 		for (unsigned i = 0; i < resume_.size(); i++) {
 			resume << resume_[i] << std::endl;

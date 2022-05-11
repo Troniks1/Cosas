@@ -1,26 +1,18 @@
 /*=======================================================================================
 =========================================================================================
-    =                                                                              =
-    =            Proyect:       Chrono Class                                       =
-    =            File name:     Chrono.hpp                                         =
-    =            Author:        Adrián Epifanio Rodríguez Hernández                =
-    =            Date:          16/04/2020                                         =
-    =            Language:      C++                                                =
-    =            Email:         alu0101158280@ull.edu.es                           =
-    =            Place:         Universidad De La Laguna                           =
-    =                           Escuela Superior de Ingeniería y Tecnología        =
-    =            GitHub:        AdrianEpi                                          =
-    =                           https://github.com/AdrianEpi                       =
-    =            Description:   Header file fo the Chrono class                    =
-    =                                                                              =
+	=                                                                              =
+	=            Proyect:       Text Classifier                                    =
+	=            File name:     Chrono.hpp                                         =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*------------  FUNCTIONS DECLARATION  ------------*/
+/*------------  DECLARACIÓN DE FUNCIONES  ------------*/
 
 #pragma once
 
 /*-------------------------------------------------*/
-/*------------  LIBRARY DECLARATION  ------------*/
+/*------------  DECLARACIÓN DE LIBRERÍAS  ------------*/
 
 #include <chrono> 
 #include <ctime>
@@ -31,12 +23,12 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      This class describes a chrono.
+ * @brief      Esta clase describe al chrono.
  */
 class Chrono {
 	
 	private:
-		// Attribs 
+		// Atributos.
 		std::chrono::time_point<std::chrono::system_clock> startClock_;
 		std::chrono::time_point<std::chrono::system_clock>  endClock_;
 		int totalTime_;
@@ -44,7 +36,7 @@ class Chrono {
 		time_t endTime_;
 
 	public:
-		// Builder & Destroyer
+		// Constructor & Destructor
 		Chrono ();
 		~Chrono ();
 
@@ -61,14 +53,14 @@ class Chrono {
 		void set_StartTime (void);
 		void set_EndTime (void);
 
-		// Functions
+		// Funciones.
 		void restartChrono (void);
 		void startChrono (void);
 		void stopChrono (void);
 		void pauseChrono (void);
 		void resumeChrono (void);
 
-		// Return Time Functions
+		// Funciones para devolver el tiempo.
 		float get_Seconds (void);
 		float get_Seconds (int decimalAmmount);
 		float get_MilliSeconds (void);

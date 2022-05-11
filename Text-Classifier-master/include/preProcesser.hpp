@@ -3,22 +3,16 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     preProcesser.hpp                                   =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------------  FUNCIONES  -----------------*/
 
 #pragma once
 
 /*------------------------------------------------*/
-/*------------------  LIBRARIES  -----------------*/
+/*------------------  LIBRERÍAS  -----------------*/
 
 #include <cstring>
 #include <cstdio>
@@ -33,19 +27,19 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      This class describes a pre processer, it makes possible to
- *             preprocess data files before using them.
+ * @brief      Esta clase describe un pre procesador para llevar a cabo dichas tareas
+ *             en el fichero de entrada, antes de usarlo.
  */
 class PreProcesser {
 
 	private:
-		// Attributes
-		std::string inputFile_;						// Input file path
-		std::string outputFile_;					// Output file path where the preprocessed text will store the data
-		std::string data_;							// Full stored data readed from input file
+		// Atributos.
+		std::string inputFile_;						// Fichero de entrada
+		std::string outputFile_;					// Fichero de salida donde se guarda el preProceso.
+		std::string data_;							// datos leidos del fichero de entrada.
 
 	public:
-		// Builders & Destroyer
+		// Constructores & Destructor.
 		PreProcesser (void);
 		PreProcesser (std::string inputFile, std::string outpuFile);
 		~PreProcesser (void);
@@ -59,10 +53,10 @@ class PreProcesser {
 		void set_OutputFile (std::string newOutputFile);
 		void set_Data (std::string newData);
 
-		// Operators Overload
+		// Sobrecarga de Operadores.
 		PreProcesser& operator= (const PreProcesser& newPreProcesser);
 
-		// Functions
+		// Funciones.
 		void convertLowerCase (std::string& str);
 		void convertLowerCase (void);
 		void convertUpperCase (std::string& str);
@@ -80,7 +74,7 @@ class PreProcesser {
 		void eraseAllNumbers (void);
 		void eraseAllNumbers (std::string& str);
 
-		// Read & Write
+		// Lectura & Escritura.
 		int loadData (std::string& inputFile, std::string dataType);
 		void loadTestData (std::string& inputFile);
 		void printData (void);

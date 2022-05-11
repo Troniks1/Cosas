@@ -3,22 +3,10 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     preProcesser.cpp                                   =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-04-21 13:04:42
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-05-14 12:50:50
-*/
 /*------------------  FUNCTIONS  -----------------*/
 
 #include "../include/preProcesser.hpp"
@@ -26,7 +14,7 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  */
 PreProcesser::PreProcesser (void) {
 	set_InputFile("");
@@ -35,10 +23,10 @@ PreProcesser::PreProcesser (void) {
 }
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  *
- * @param[in]  inputFile  The input file
- * @param[in]  outpuFile  The outpu file
+ * @param[in]  inputFile  El fichero de entrada.
+ * @param[in]  outpuFile  El fichero de salida.
  */
 PreProcesser::PreProcesser (std::string inputFile, std::string outpuFile) {
 	set_InputFile(inputFile);
@@ -47,71 +35,71 @@ PreProcesser::PreProcesser (std::string inputFile, std::string outpuFile) {
 }
 
 /**
- * @brief      Destroys the object.
+ * @brief      Destruye el objeto.
  */
 PreProcesser::~PreProcesser (void) {
 }
 
 /**
- * @brief      Gets the input file.
+ * @brief      Consigue el fichero de entrada.
  *
- * @return     The input file.
+ * @return     El fichero de entrada.
  */
 std::string PreProcesser::get_InputFile (void) const {
 	return inputFile_;
 }
 
 /**
- * @brief      Gets the output file.
+ * @brief      Consigue el fichero de salida.
  *
- * @return     The output file.
+ * @return     El fichero de salida.
  */
 std::string PreProcesser::get_OutputFile (void) const {
 	return outputFile_;
 }
 
 /**
- * @brief      Gets the data.
+ * @brief      Consigue los datos.
  *
- * @return     The data.
+ * @return     Los datos.
  */
 std::string PreProcesser::get_Data (void) const {
 	return data_;
 }
 
 /**
- * @brief      Sets the input file.
+ * @brief      Establece el fichero de entrada.
  *
- * @param[in]  newInputFile  The new input file
+ * @param[in]  newInputFile  El fichero de entrada.
  */
 void PreProcesser::set_InputFile (std::string newInputFile) {
 	inputFile_ = newInputFile;
 }
 
 /**
- * @brief      Sets the output file.
+ * @brief      Establece el fichero de salida.
  *
- * @param[in]  newOutputFile  The new output file
+ * @param[in]  newOutputFile  El fichero de salida.
  */
 void PreProcesser::set_OutputFile (std::string newOutputFile) {
 	outputFile_ = newOutputFile;
 }
 
 /**
- * @brief      Sets the data.
+ * @brief      Establece los datos.
  *
- * @param[in]  newData  The new data
+ * @param[in]  newData  Los datos.
  */
 void PreProcesser::set_Data (std::string newData) {
 	data_ = newData;
 }
 
 /**
- * @brief      Assignment operator.
+ * @brief      Operador de asignación.
  *
- * @param[in]  newPreProcesser  The new pre processer
+ * @param[in]  newPreProcesser  El nuevo PreProcesser.
  *
- * @return     The result of the assignment
+ * @return     El resultado de la asignación.
  */
 PreProcesser& PreProcesser::operator= (const PreProcesser& newPreProcesser) {
 	this -> set_Data(newPreProcesser.get_Data());
@@ -121,9 +109,9 @@ PreProcesser& PreProcesser::operator= (const PreProcesser& newPreProcesser) {
 }
 
 /**
- * @brief      Converts all the str into Lower Case
+ * @brief      Convierte todo el str a minuscula.
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::convertLowerCase (std::string& str) {
 	set_Data(str);
@@ -132,16 +120,16 @@ void PreProcesser::convertLowerCase (std::string& str) {
 }
 
 /**
- * @brief      Converts all the data into Lower Case
+ * @brief      Convierte todos los datos a minúscula.
  */
 void PreProcesser::convertLowerCase (void) {
 	std::transform(data_.begin(), data_.end(),data_.begin(), ::tolower);
 }
 
 /**
- * @brief      Converts all the str into Upper Case
+ * @brief      Convierte todo el string a mayúscula.
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::convertUpperCase (std::string& str) {
 	set_Data(str);
@@ -150,18 +138,18 @@ void PreProcesser::convertUpperCase (std::string& str) {
 }
 
 /**
- * @brief      Converts all the data into Upper Case
+ * @brief      Convierte todos los datos a mayúscula.
  */
 void PreProcesser::convertUpperCase (void) {
 	std::transform(data_.begin(), data_.end(),data_.begin(), ::toupper);
 }
 
 /**
- * @brief      Deletes all the words from the vector in the given file and
- *             stores them into the same file.
+ * @brief      Borra todas las reservedWords.
+ *             
  *
- * @param[in]  reservedWords  The reserved words vector
- * @param[in]  fileName       The file name
+ * @param[in]  reservedWords  El vector de palabras reservadas.
+ * @param[in]  fileName       El fichero de entrada.
  */
 void PreProcesser::eraseReservedWords (std::vector<std::string>& reservedWords, std::string& fileName) {
 	std::ifstream file(fileName, std::ios::in);
@@ -189,13 +177,13 @@ void PreProcesser::eraseReservedWords (std::vector<std::string>& reservedWords, 
 }
 
 /**
- * @brief      Deletes all the words from the vector in the given string and
- *             returns it
+ * @brief      Borra todas las reservedWords.
+ *             
  *
- * @param[in]  reservedWords  The reserved words vector
- * @param[in]  sentence       The sentence
+ * @param[in]  reservedWords  El vector de palabras reservadas.
+ * @param[in]  sentence       La sentencia.
  *
- * @return     The string without the reserved words.
+ * @return     El string sin las palabras reservadas.
  */
 std::string PreProcesser::eraseReservedWords (std::string& sentence, std::vector<std::string>& reservedWords) {
 	std::string result = "";
@@ -222,9 +210,9 @@ std::string PreProcesser::eraseReservedWords (std::string& sentence, std::vector
 }
 
 /**
- * @brief      Erases all punctuation sings into readed data.
+ * @brief      Borra todos los signos de puntuación.
  *
- * @param      str   The string
+ * @param      str   El string.
  */
 void PreProcesser::erasePunctuationSigns (std::string& str) {
 	set_Data(str);
@@ -233,7 +221,7 @@ void PreProcesser::erasePunctuationSigns (std::string& str) {
 }
 
 /**
- * @brief      Erases all punctuation sings into readed data.
+ * @brief      Borra todos los signos de puntuación.
  */
 void PreProcesser::erasePunctuationSigns (void) {
 	for (unsigned i = 0; i < data_.length(); i++) {
@@ -244,10 +232,10 @@ void PreProcesser::erasePunctuationSigns (void) {
 }
 
 /**
- * @brief      Erases all URLs into data var, an URL is defined as a '.' between
- *             letters without spaces.
+ * @brief      Borra todas las URLs.
+ *             
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::eraseURLs (std::string& str) {
 	set_Data(str);
@@ -256,8 +244,8 @@ void PreProcesser::eraseURLs (std::string& str) {
 }
 
 /**
- * @brief      Erases all URLs into data var, an URL is defined as a '.' between
- *             letters without spaces. (Careful with float numbers)
+ * @brief      Borra todas las URLs.
+ *             
  */
 void PreProcesser::eraseURLs (void) {
 	for (unsigned i = 0; i < data_.length(); i++) {
@@ -276,9 +264,9 @@ void PreProcesser::eraseURLs (void) {
 }
 
 /**
- * @brief      Erases all Hashtags into data var.
+ * @brief      Borra todos los Hashtags.
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::eraseHashtags (std::string& str) {
 	set_Data(str);
@@ -287,7 +275,7 @@ void PreProcesser::eraseHashtags (std::string& str) {
 }
 
 /**
- * @brief      Erases all Hashtags into data var.
+ * @brief      Borra todos los hashtags.
  *
  */
 void PreProcesser::eraseHashtags (void) {
@@ -303,10 +291,10 @@ void PreProcesser::eraseHashtags (void) {
 }
 
 /**
- * @brief      Erases all numbers and characters form a readen number till next
- *             space.
+ * @brief      Borra todos los números.
+ *             
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::eraseNumbers (std::string& str) {
 	set_Data(str);
@@ -315,8 +303,8 @@ void PreProcesser::eraseNumbers (std::string& str) {
 }
 
 /**
- * @brief      Erases all numbers and characters form a readen number till next
- *             space.
+ * @brief      Borra todos los números.
+ *             
  */
 void PreProcesser::eraseNumbers (void) {
 	if (isdigit(data_[0])) {
@@ -337,7 +325,7 @@ void PreProcesser::eraseNumbers (void) {
 }
 
 /**
- * @brief      Erases all words that contains numbers and all numbers in data.
+ * @brief      Borra todos los números y las palabras que contengan números.
  */
 void PreProcesser::eraseAllNumbers (void) {
 	if (isdigit(data_[0])) {
@@ -365,10 +353,10 @@ void PreProcesser::eraseAllNumbers (void) {
 }
 
 /**
- * @brief      Erases all words that contains numbers and all numbers in given
- *             string.
+ * @brief      Borra todos los números y las palabras que contienen números.
+ *             
  *
- * @param      str   The string
+ * @param      str   El String.
  */
 void PreProcesser::eraseAllNumbers (std::string& str) {
 	set_Data(str);
@@ -377,14 +365,14 @@ void PreProcesser::eraseAllNumbers (std::string& str) {
 }
 
 /**
- * @brief      Loads the data that starts with the dataTpe from input file into
- *             data var.
+ * @brief      Carga los datos de determinado tipo.
+ *             
  *
- * @param      inputFile  The input file
- * @param[in]  dataType   The data type that wants to be loaded (must be the
- *                        first word per line)
+ * @param      inputFile  El fichero de entrada.
+ * @param[in]  dataType   El tipo.
+ *                        
  *
- * @return     Data lines included.
+ * @return     Las líneas de datos incluidas.
  */
 int PreProcesser::loadData (std::string& inputFile, std::string dataType) {
 	data_ = "";
@@ -426,9 +414,9 @@ int PreProcesser::loadData (std::string& inputFile, std::string dataType) {
 }
 
 /**
- * @brief      Loads the test data.
+ * @brief      Carga los datos de testeo.
  *
- * @param      inputFile  The input file
+ * @param      inputFile  El fichero de entrada.
  */
 void PreProcesser::loadTestData (std::string& inputFile) {
 	data_ = "";
@@ -447,17 +435,17 @@ void PreProcesser::loadTestData (std::string& inputFile) {
 }
 
 /**
- * @brief      Prints data var.
+ * @brief      Muestra los datos..
  */
 void PreProcesser::printData  (void) {
 	std::cout << data_;
 }
 
 /**
- * @brief      Stores the data into the given file
+ * @brief      Guarda los datos en determinado fichero.
  *
- * @param      outputFile  The output file
- * @param[in]  dataLines   The data lines
+ * @param      outputFile  El fichero de salida.
+ * @param[in]  dataLines   Las líneas de datos.
  */
 void PreProcesser::storeData(std::string& outputFile, int dataLines) {
 	std::fstream file(outputFile, std::ios::out | std::ios::trunc);

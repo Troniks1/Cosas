@@ -3,17 +3,11 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     vocabulary.hpp                                     =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------------  DECLARACIÓN DE FUNCIONES  -----------------*/
 
 #pragma once
 #include "preProcesser.hpp"
@@ -21,7 +15,7 @@
 #include "token.hpp"
 
 /*------------------------------------------------*/
-/*------------------  LIBRARIES  -----------------*/
+/*------------------  LIBRERÍAS  -----------------*/
 
 #include <cstring>
 #include <set>
@@ -33,23 +27,23 @@
 /*------------------------------------------------*/
 
 /**
- * @brief      This class describes a vocabulary and 
+ * @brief      Esta clase describe un vocabulario. 
  */
 class Vocabulary {
 
 	private:
-		// Attributes
-		std::string inputFile_;			// Input file path
-		std::string outpuFile_;			// Output file where the vocabulary will be stored
-		int vocabularyCounter_;			// Number of different words in the vocabulary
-		int nTokens_;					// Number of words in the text
-		int nLines_;					// Number of lines readed from file;
-		std::set<Token> vocabulary_;	// Set with all the vocabulary
-		std::string type_;				// The vocabulary type (if aplicable)
-		float classProbability_;		// The class probability (if aplicable)
+		// Atributos.
+		std::string inputFile_;			// Fichero de entrada.
+		std::string outpuFile_;			// Fichero de salida donde será guardado el vocabulario.
+		int vocabularyCounter_;			// Numero de diferentes palabras en el vocabulario.
+		int nTokens_;					// Número de palabras en el texto.
+		int nLines_;					// Numero de líneas leído
+		std::set<Token> vocabulary_;	// Set con todo el vocabulario.
+		std::string type_;				// El tipo del vocabulario.
+		float classProbability_;		// La probabilidad de clase
 
 	public:
-		// Builders & Destroyer
+		// Constructores y Destructor.
 		Vocabulary (void);
 		Vocabulary (std::string inputFile, std::string outpuFile);
 		~Vocabulary (void);
@@ -73,17 +67,17 @@ class Vocabulary {
 		void set_Type (std::string newType);
 		void set_ClassProbability (float newClassProbability);
 
-		// Operators Overload
+		// Sobrecarga de Operadores.
 		Vocabulary& operator= (const Vocabulary& newVocabulary);
 
-		// Functions
+		// Funciones.
 		void preProcessData (std::string& stopWordFile);
 		std::vector<std::string> loadStopWord (std::string& inputFile);
 		void generateVocabulary (std::string& inputFile, bool tokenized);
 		void calculateProbabilities (void);
 		void addClassProbability (int size);
 
-		// Write
+		// Escritura.
 		void readVocabulary (std::string& inputFile);
 		void storeVocabulary (std::string& outputFile);
 		void readLearnedData (std::string& inputFile);

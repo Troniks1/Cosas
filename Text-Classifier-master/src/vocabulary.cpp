@@ -3,30 +3,19 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     vocabulary.cpp                                     =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-04-21 13:37:30
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-05-11 23:02:37
-*/
-/*------------------  FUNCTIONS  -----------------*/
+
+/*------------------  DECLARACIÓN DE FUNCIONES  -----------------*/
 
 #include "../include/vocabulary.hpp"
 
 /*------------------------------------------------*/
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  */
 Vocabulary::Vocabulary (void) {
 	set_InputFile("");
@@ -39,10 +28,10 @@ Vocabulary::Vocabulary (void) {
 }
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  *
- * @param[in]  inputFile  The input file
- * @param[in]  outpuFile  The outpu file
+ * @param[in]  inputFile  El fichero de entrada.
+ * @param[in]  outpuFile  El fichero de salida.
  */
 Vocabulary::Vocabulary (std::string inputFile, std::string outpuFile) {
 	set_InputFile(inputFile);
@@ -55,161 +44,161 @@ Vocabulary::Vocabulary (std::string inputFile, std::string outpuFile) {
 }
 
 /**
- * @brief      Destroys the object.
+ * @brief      Destruye el objeto.
  */
 Vocabulary::~Vocabulary (void) {
 }
 
 /**
- * @brief      Gets the input file.
+ * @brief      Consigue el fichero de entrada.
  *
- * @return     The input file.
+ * @return     El fichero de entrada.
  */
 std::string Vocabulary::get_InputFile (void) const {
 	return inputFile_;
 }
 
 /**
- * @brief      Gets the outpu file.
+ * @brief      Consigue el fichero de salida.
  *
- * @return     The outpu file.
+ * @return     El fichero de salida.
  */
 std::string Vocabulary::get_OutpuFile (void) const {
 	return outpuFile_;
 }
 
 /**
- * @brief      Gets the VocabularyCounter.
+ * @brief      Consigue el VocabularyCounter.
  *
- * @return     The VocabularyCounter.
+ * @return     El VocabularyCounter.
  */
 int Vocabulary::get_VocabularyCounter (void) const {
 	return vocabularyCounter_;
 }
 
 /**
- * @brief      Gets the tokens number.
+ * @brief      Consigue el número de tokens.
  *
- * @return     The tokens number.
+ * @return     El número de tokens.
  */
 int Vocabulary::get_NTokens (void) const {
 	return nTokens_;
 }
 
 /**
- * @brief      Gets the number of lines.
+ * @brief      Consigue el número de líneas.
  *
- * @return     The number of lines.
+ * @return     El número de líneas.
  */
 int Vocabulary::get_NLines (void) const {
 	return nLines_;
 }
 
 /**
- * @brief      Gets the class probability.
+ * @brief      Conssigue la probabilidad de clase.
  *
- * @return     The class probability.
+ * @return     La probabilidad de clase.
  */
 float Vocabulary::get_ClassProbability (void) const {
 	return classProbability_;
 }
 
 /**
- * @brief      Gets the vocabulary.
+ * @brief      Consigue el vocabulario.
  *
- * @return     The vocabulary.
+ * @return     El vocabulario.
  */
 std::set<Token> Vocabulary::get_Vocabulary (void) const {
 	return vocabulary_;
 }
 
 /**
- * @brief      Gets the type.
+ * @brief      Consigue el tipo.
  *
- * @return     The type.
+ * @return     El tipo.
  */
 std::string Vocabulary::get_Type (void) const {
 	return type_;
 }
 
 /**
- * @brief      Sets the input file.
+ * @brief      Establece el fichero de entrada.
  *
- * @param[in]  newInputFile  The new input file
+ * @param[in]  newInputFile  El fichero de entrada.
  */
 void Vocabulary::set_InputFile (std::string newInputFile) {
 	inputFile_ = newInputFile;
 }
 
 /**
- * @brief      Sets the outpu file.
+ * @brief      Establece el fichero de salida.
  *
- * @param[in]  newOutpuFile  The new outpu file
+ * @param[in]  newOutpuFile  El fichero de salida.
  */
 void Vocabulary::set_OutpuFile (std::string newOutpuFile) {
 	outpuFile_ = newOutpuFile;
 }
 
 /**
- * @brief      Sets the counter.
+ * @brief      Establece el contador.
  *
- * @param[in]  newVocabularyCounter  The new counter
+ * @param[in]  newVocabularyCounter  El contador.
  */
 void Vocabulary::set_VocabularyCounter (int newVocabularyCounter) {
 	vocabularyCounter_ = newVocabularyCounter;
 }
 
 /**
- * @brief      Sets the tokens number.
+ * @brief      Establece el número de tokens.
  *
- * @param[in]  newTokens  The new tokens number
+ * @param[in]  newTokens  El número de tokens
  */
 void Vocabulary::set_NTokens (int newTokens) {
 	nTokens_ = newTokens;
 }
 
 /**
- * @brief      Sets the number of lines.
+ * @brief      Establece el número de lineas
  *
- * @param[in]  newLines  The new lines number
+ * @param[in]  newLines  El número de líneas.
  */
 void Vocabulary::set_NLines (int newLines) {
 	nLines_ = newLines;
 }
 
 /**
- * @brief      Sets the vocabulary.
+ * @brief      Establece el vocabulario.
  *
- * @param[in]  newVocabulary  The new vocabulary
+ * @param[in]  newVocabulary  El vocabulario.
  */
 void Vocabulary::set_Vocabulary (std::set<Token> newVocabulary) {
 	vocabulary_ = newVocabulary;
 }
 
 /**
- * @brief      Sets the type.
+ * @brief      Establece el tipo.
  *
- * @param[in]  newType  The new type
+ * @param[in]  newType  El tipo.
  */
 void Vocabulary::set_Type (std::string newType) {
 	type_ = newType;
 }
 
 /**
- * @brief      Sets the class probability.
+ * @brief      Establece la probabilidad de clase.
  *
- * @param[in]  newClassProbability  The new class probability
+ * @param[in]  newClassProbability  La probabilidad de clase.
  */
 void Vocabulary::set_ClassProbability (float newClassProbability) {
 	classProbability_ = newClassProbability;
 }
 
 /**
- * @brief      Assignment operator.
+ * @brief      Operador =
  *
- * @param[in]  newVocabulary  The new vocabulary
+ * @param[in]  newVocabulary  El vocabulario.
  *
- * @return     The result of the assignment
+ * @return     El resultado de la asignación.
  */
 Vocabulary& Vocabulary::operator= (const Vocabulary& newVocabulary) {
 	this -> set_Vocabulary(newVocabulary.get_Vocabulary());
@@ -224,10 +213,9 @@ Vocabulary& Vocabulary::operator= (const Vocabulary& newVocabulary) {
 }
 
 /**
- * @brief      Preprocess the data for the program, erases punctuation signs,
- *             converts all to lowercase and erases reserved words.
+ * @brief      Preprocesa los datos del programa.
  *
- * @param[in]  stopWordFile  The stop word file
+ * @param[in]  stopWordFile  El fichero de StopWords.
  */
 void Vocabulary::preProcessData (std::string& stopWordFile) {
 	PreProcesser preProcesser;
@@ -244,11 +232,11 @@ void Vocabulary::preProcessData (std::string& stopWordFile) {
 }
 
 /**
- * @brief      Loads the stop words (reserved words).
+ * @brief      Carga las stopWords.
  *
- * @param[in]  inputFile  The input file
+ * @param[in]  inputFile  El fichero de entrada.
  *
- * @return     stop words vector
+ * @return     El vector de StopWords.
  */
 std::vector<std::string> Vocabulary::loadStopWord (std::string& inputFile) {
 	std::vector<std::string> stopWords;
@@ -267,10 +255,10 @@ std::vector<std::string> Vocabulary::loadStopWord (std::string& inputFile) {
 }
 
 /**
- * @brief      Generates vocabulary file
+ * @brief      Genera el fichero de Vocabulario.
  *
- * @param      inputFile  The input file
- * @param[in]  tokenize   If want to words to be tokenized or not
+ * @param      inputFile  El fichero de entrada.
+ * @param[in]  tokenize   Si quieres que las palabras se tokenizen o no.
  */
 void Vocabulary::generateVocabulary (std::string& inputFile, bool tokenize) {
 	std::ifstream file(inputFile, std::ios::in);
@@ -307,9 +295,9 @@ void Vocabulary::generateVocabulary (std::string& inputFile, bool tokenize) {
 }
 
 /**
- * @brief      Calculates and adds the class probability.
+ * @brief      Calcula y añade la probabilidad de clase.
  *
- * @param[in]  size  The size
+ * @param[in]  size  El tamaño
  */
 void Vocabulary::addClassProbability (int size) {
 
@@ -320,9 +308,9 @@ void Vocabulary::addClassProbability (int size) {
 }
 
 /**
- * @brief      Reads a created vocabulary from file.
+ * @brief      Lee un Vocabulario creado desde el fichero.
  *
- * @param      inputFile  The input file
+ * @param      inputFile  El fichero de entrada.
  */
 void Vocabulary::readVocabulary (std::string& inputFile) {
 	std::ifstream file(inputFile, std::ios::in);
@@ -346,9 +334,9 @@ void Vocabulary::readVocabulary (std::string& inputFile) {
 }
 
 /**
- * @brief      Stores the vocabulary into the given file.
+ * @brief      Almacena el vocabulario en un fichero de salida.
  *
- * @param      outputFile  The output file
+ * @param      outputFile  El fichero de salida.
  */
 void Vocabulary::storeVocabulary (std::string& outputFile) {
 	std::fstream file(outputFile, std::ios::out | std::ios::trunc);
@@ -368,10 +356,10 @@ void Vocabulary::storeVocabulary (std::string& outputFile) {
 }
 
 /**
- * @brief      Reads a learned data from a file and store the tokens with their
- *             respective probabilities and frecuence in the tokens set.
+ * @brief      Lee los datos de aprendiza yt los guarda con sus respectivas
+ *             probabilidades y frecuencias.
  *
- * @param      inputFile  The input file
+ * @param      inputFile  El fichero de entrada.
  */
 void Vocabulary::readLearnedData (std::string& inputFile) {
 	std::ifstream file(inputFile, std::ios::in);

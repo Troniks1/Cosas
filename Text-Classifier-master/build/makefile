@@ -53,7 +53,7 @@ fullRun:
 	make runTestPercentage
 
 runTestPercentage:
-	../bin/textClassifier --error ../outputs/resumen_alu0101158280.csv ../inputs/resumeExpected.csv
+	../bin/textClassifier --error ../outputs/resumen_alu0100819786.csv ../inputs/resumeExpected.csv
 
 runClassifier:
 	../bin/textClassifier --classify ../inputs/COV-test.csv ../inputs/stopWords.txt ../outputs/aprendizajeN.txt ../outputs/aprendizajeP.txt
@@ -66,8 +66,3 @@ runCorpus:
 
 runVocabulary:
 	../bin/textClassifier --vocabulary ../inputs/COV_train.csv ../outputs/vocabulary.txt ../inputs/stopWords.txt
-
-runLog:
-	echo "\n\n\nExecuted ${TIME}" >> ../outputs/runDetails.txt
-	make fullRun >> ../outputs/runDetails.txt
-	echo "You can find full output at outputs/runDetails.txt"

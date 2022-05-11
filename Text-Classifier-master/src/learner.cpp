@@ -3,43 +3,30 @@
 	=                                                                              =
 	=            Proyect:       Text Classifier                                    =
 	=            File name:     learner.cpp                                        =
-	=            Author:        Adrián Epifanio Rodríguez Hernández                =
-	=            Date:          21/04/2021                                         =
-	=            Subject:       Advanced Artificial Inteligence                    =
-	=            Language:      C++                                                =
-	=            Email:         alu0101158280@ull.edu.es                           =
-	=            Place:         Universidad De La Laguna                           =
-	=                           Escuela Superior de Ingeniería y Tecnología        =
-	=                                                                              =
+	=            Author:        Gabriel Melián Hernández		                   =
+	=																			   =
 =========================================================================================
 =======================================================================================*/
-/*
-* @Author: Adrian Epifanio
-* @Date:   2021-05-01 12:27:32
-* @Last Modified by:   Adrian Epifanio
-* @Last Modified time: 2021-05-14 12:43:04
-*/
-/*------------------  FUNCTIONS  -----------------*/
+/*------------------  DECLARACIÓN DE FUNCIONES  -----------------*/
 
 #include "../include/learner.hpp"
 
 /*------------------------------------------------*/
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  */
 Learner::Learner (void) {
 	set_VocabularyFile("");
 }
 
 /**
- * @brief      Constructs a new instance.
+ * @brief      Construye una nueva instancia.
  *
- * @param      argv  The arguments array
- * @param      argc  The count of arguments
+ * @param      argv  El array de argumentos.
+ * @param      argc  La cantidad de argumentos.
  */
 Learner::Learner (char* argv[], int& argc) {
-	// Vocabulary file must be in 3rd place as shown in manual
 	set_VocabularyFile(argv[2]);
 	for (int i = 3; i < argc; i++) {
 		Chrono chrono;
@@ -59,74 +46,68 @@ Learner::Learner (char* argv[], int& argc) {
 }
 
 /**
- * @brief      Destroys the object.
+ * @brief      Destruye el objeto.
  */
 Learner::~Learner (void) {
 }
 
 /**
- * @brief      Gets the learners.
+ * @brief      Consigue el aprendizaje.
  *
- * @return     The learners.
+ * @return     El aprendizaje.
  */
 std::vector<Vocabulary> Learner::get_Learners (void) const {
 	return learners_;
 }
 
 /**
- * @brief      Gets the input corpus files.
+ * @brief      Consigue el fichero de entrada del corpus.
  *
- * @return     The input corpus files.
+ * @return     El fichero de entrada del corpus.
  */
 std::vector<std::string> Learner::get_InputCorpusFiles (void) const {
 	return inputCorpusFiles_;
 }
 
 /**
- * @brief      Gets the vocabulary file.
+ * @brief      Consigue el fichero del vocabulario.
  *
- * @return     The vocabulary file.
+ * @return     El fichero de entrada del vocabulario.
  */
 std::string Learner::get_VocabularyFile (void) const {
 	return vocabularyFile_;
 }
 
 /**
- * @brief      Sets the learners.
+ * @brief      Establece el aprendizaje.
  *
- * @param[in]  newLearners  The new learners
+ * @param[in]  newLearners  Los nuevos aprendizajes.
  */
 void Learner::set_Learners (std::vector<Vocabulary> newLearners) {
 	learners_ = newLearners;
 }
 
 /**
- * @brief      Sets the input corpus files.
+ * @brief      Establece el fichero de entrada del corpus.
  *
- * @param[in]  newInputCorpusFiles  The new input corpus files
+ * @param[in]  newInputCorpusFiles  El nuevo fichero de entrada del corpus.
  */
 void Learner::set_InputCorpusFiles (std::vector<std::string> newInputCorpusFiles) {
 	inputCorpusFiles_ = newInputCorpusFiles;
 }
 
 /**
- * @brief      Sets the vocabulary file.
+ * @brief      Establece el fichero de vocabulario.
  *
- * @param[in]  newVocabularyFile  The new vocabulary file
+ * @param[in]  newVocabularyFile  El nuevo fichero de vocabulario.
  */
 void Learner::set_VocabularyFile (std::string newVocabularyFile) {
 	vocabularyFile_ = newVocabularyFile;
 }
 
 /**
- * @brief      Generates the proabilities of all the tokens in vocabulary and
- *             stores them in a file called "aprendizaje_DATATYPE.txt".
- *             The file format is:
- *             Number of corpus documents: <integer>
- *             Number of words in corpus: <integer>
- *             Word:<string> Frec:<int> LogProb:<float>
- *             Word:<string> Frec:<int> LogProb:<float>
- *             Word:<string> Frec:<int> LogProb:<float>
+ * @brief      Genera las probabilidades para todos los tokens del vocabulario
+ *             y los almacena en un fichero.
  */
 void Learner::learnAndStoreData (void) {
 	for (unsigned i = 0; i < learners_.size(); i++) {
@@ -147,15 +128,6 @@ void Learner::learnAndStoreData (void) {
 			data += "\nNumero de palabras del corpus: " + std::to_string(tokenAmmount);
 			for (auto tmp : learners_[i].get_Vocabulary()) {
 				std::string line =  "\nPalabra: " + tmp.get_Name();
-				/*----------  Uncomment this for tab columns  ----------*/
-				/*
-				while (line.length() < 50) {
-					line += " ";
-				}
-				data += line + "\t\tFrec: " + std::to_string(tmp.get_Ammount()) + "  \t\tLogProb: " + std::to_string(tmp.generateLogProb(vocSize, tokenAmmount));
-				*/
-			
-				/*----------  Comment this for untab columns  ----------*/
 				data += line + " Frec: " + std::to_string(tmp.get_Ammount()) + " LogProb: " + std::to_string(tmp.generateLogProb(vocSize, tokenAmmount));
 			}
 			file << data;
